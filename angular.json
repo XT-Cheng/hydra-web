@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "brick-travel-web": {
+    "hydra-web": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/brick-travel-web",
+            "outputPath": "dist/hydra-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -56,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "brick-travel-web:build"
+            "browserTarget": "hydra-web:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "brick-travel-web:build:production"
+              "browserTarget": "hydra-web:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "brick-travel-web:build"
+            "browserTarget": "hydra-web:build"
           }
         },
         "test": {
@@ -101,7 +101,7 @@
         }
       }
     },
-    "brick-travel-web-e2e": {
+    "hydra-web-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -109,7 +109,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "brick-travel-web:serve"
+            "devServerTarget": "hydra-web:serve"
           }
         },
         "lint": {
@@ -124,7 +124,7 @@
       }
     }
   },
-  "defaultProject": "brick-travel-web",
+  "defaultProject": "hydra-web",
   "schematics": {
     "ng-alain:module": {
       "routing": true,

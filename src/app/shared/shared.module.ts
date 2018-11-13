@@ -12,8 +12,12 @@ import { DelonFormModule } from '@delon/form';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { CountdownModule } from 'ngx-countdown';
 import { TranslateModule } from '@ngx-translate/core';
-import { DashboardMachineComponent } from './copmonents/charts/machine.main.component';
+import { MachineSummaryComponent } from './copmonents/charts/machine.summary.component';
 import { DelonChartModule } from '@delon/chart';
+import { ChartCardComponent } from './copmonents/card.component';
+import { ChartGaugeComponent } from './copmonents/gauge.component';
+import { ChartTrendComponent } from './copmonents/trend.component';
+import { ChartBarLineComponent } from './copmonents/barLine.component';
 const THIRDMODULES = [
   NgZorroAntdModule,
   CountdownModule,
@@ -22,7 +26,7 @@ const THIRDMODULES = [
 // endregion
 
 // region: your componets & directives
-const COMPONENTS = [DashboardMachineComponent];
+const COMPONENTS = [ChartBarLineComponent, ChartCardComponent, ChartTrendComponent, ChartGaugeComponent, MachineSummaryComponent];
 const DIRECTIVES = [];
 // endregion
 

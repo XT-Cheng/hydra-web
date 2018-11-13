@@ -10,7 +10,7 @@ const beginDay = new Date().getTime();
 const fakeY = [7, 5, 4, 2, 4, 7, 5, 6, 5, 9, 6, 3, 1, 5, 3, 6, 5];
 for (let i = 0; i < fakeY.length; i += 1) {
   visitData.push({
-    x: format(new Date(beginDay + 1000 * 60 * 60 * 24 * i), 'YYYY-MM-DD'),
+    x: format(new Date(beginDay - 1000 * 60 * 60 * i), 'YYYY-MM-DD HH:00'),
     y: fakeY[i],
   });
 }
@@ -19,15 +19,15 @@ const visitData2 = [];
 const fakeY2 = [1, 6, 4, 8, 3, 7, 2];
 for (let i = 0; i < fakeY2.length; i += 1) {
   visitData2.push({
-    x: format(new Date(beginDay + 1000 * 60 * 60 * 24 * i), 'YYYY-MM-DD'),
+    x: format(new Date(beginDay - 1000 * 60 * 60 * i), 'YYYY-MM-DD HH:00'),
     y: fakeY2[i],
   });
 }
 
 const salesData = [];
-for (let i = 0; i < 12; i += 1) {
+for (let i = 12; i > 0; i -= 1) {
   salesData.push({
-    x: `${i + 1}月`,
+    x: format(new Date(beginDay - 1000 * 60 * 60 * i), 'MM-DD HH:00'),
     y: Math.floor(Math.random() * 1000) + 200,
   });
 }
@@ -41,6 +41,54 @@ for (let i = 0; i < 50; i += 1) {
     status: Math.floor((Math.random() * 10) % 2),
   });
 }
+const prepareData = [];
+
+prepareData.push({
+  name: '模具准备',
+  desc: `模具准备`,
+  finished: 1,
+}, {
+    name: '物料准备',
+    desc: `物料准备`,
+    finished: 2,
+  }, {
+    name: 'WI准备',
+    desc: `WI准备`,
+    finished: 5,
+  }, {
+    name: '线长确认',
+    desc: `线长确认`,
+    finished: 3,
+  });
+
+const materialData = [];
+
+materialData.push({
+  batch: '3S123456789012',
+  material: `9-242943-1`,
+  qty: 1203,
+  percentage: 80,
+  loaded: 1
+}, {
+    batch: '',
+    material: `533983-1`,
+    qty: 0,
+    percentage: 60,
+    loaded: 2
+  }, {
+    batch: '3S998921234012',
+    material: `9-242943-2`,
+    qty: 20,
+    percentage: 5,
+    loaded: 3
+  }, {
+    batch: '3S712921234012',
+    material: `9-242943-3`,
+    qty: 989,
+    percentage: 90,
+    loaded: 1
+  });
+
 const salesTypeData = [
   {
     x: '家用电器',
@@ -188,6 +236,8 @@ export const CHARTS = {
   '/chart': deepCopy({
     visitData,
     visitData2,
+    prepareData,
+    materialData,
     salesData,
     searchData,
     offlineData,

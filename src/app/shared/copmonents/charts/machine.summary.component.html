@@ -1,0 +1,99 @@
+<nz-card [nzTitle]="'产线概况 - 潍柴主线'" [nzBodyStyle]="{padding: '0px'}">
+  <div nz-row [nzGutter]="24" style='padding-top: 1px;'>
+    <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
+      <dashboard-g2-card [title]="'当前工单'" total="2002123456789012" contentHeight="87px" [footer]="footer1">
+        <p class="text-truncate mb0">
+          目标数量 / 已完工
+          <span class="ml-sm">12,000 / 4230</span>
+        </p>
+        <g2-mini-progress percent="78" strokeWidth="28" target="80" [color]="'red'" style="position: relative;top: 20px;"></g2-mini-progress>
+        <ng-template #footer1>
+          <dashboard-g2-trend flag="up" style="display:block; margin-top:2px;">
+            预计完工于
+            <span class="ml-sm">2018/11/21</span>
+          </dashboard-g2-trend>
+        </ng-template>
+      </dashboard-g2-card>
+    </div>
+    <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
+      <dashboard-g2-card [title]="'当班产量'" total="232" contentHeight="87px" [footer]="footer2">
+        <p class="text-truncate mb0">
+          产量 / 小时
+          <span class="ml-sm">12.34</span>
+        </p>
+        <g2-mini-area color="#975FE4" height="66" [data]="data.visitData"></g2-mini-area>
+        <ng-template #footer2>
+          <dashboard-g2-trend flag="up" [reverseColor]='true' style="display:block; margin-top:2px;">
+            同比上小时
+            <span class="ml-sm">23%</span>
+          </dashboard-g2-trend>
+        </ng-template>
+      </dashboard-g2-card>
+    </div>
+    <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
+      <dashboard-g2-card [title]="'当班不良'" total="12" contentHeight="87px" [footer]="footer3">
+        <p class="text-truncate mb0">
+          不良 / 小时
+          <span class="ml-sm">0.34</span>
+        </p>
+        <g2-mini-bar height="66" [data]="data.visitData"></g2-mini-bar>
+        <ng-template #footer3>
+          <dashboard-g2-trend flag="down" style="display:block; margin-top:2px;">
+            同比上小时
+            <span class="ml-sm">23%</span>
+          </dashboard-g2-trend>
+        </ng-template>
+      </dashboard-g2-card>
+    </div>
+    <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
+      <dashboard-g2-card [title]="'设备OEE'" contentHeight="87px">
+        <dashboard-g2-gauge [height]="180" [percent]="89"></dashboard-g2-gauge>
+      </dashboard-g2-card>
+    </div>
+  </div>
+</nz-card>
+<nz-card [nzBordered]="false" class="ant-card__body-nopadding sales-card">
+  <!-- <nz-tabset [nzTabBarExtraContent]="extraTemplate"> -->
+  <nz-tabset>
+    <nz-tab [nzTitle]="'小时产量'">
+      <div nz-row>
+        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+          <div class="bar">
+            <dashboard-g2-bar-line height="295" [title]="'小时产量'" [data]="data.salesData"></dashboard-g2-bar-line>
+          </div>
+        </div>
+      </div>
+    </nz-tab>
+    <nz-tab [nzTitle]="'小时不良'">
+      <div nz-row>
+        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+          <div class="bar">
+            <dashboard-g2-bar-line height="295" [title]="'小时不良'" [data]="data.salesData"></dashboard-g2-bar-line>
+          </div>
+        </div>
+      </div>
+    </nz-tab>
+    <nz-tab [nzTitle]="'换型准备'">
+      <st [data]="data.prepareData" [columns]="prepareCols" size="small" ps="5" [page]="{toTop:false}">
+      </st>
+    </nz-tab>
+    <nz-tab [nzTitle]="'物料准备'">
+      <st [data]="data.materialData" [columns]="materialCols" size="small" ps="5" [page]="{toTop:false}">
+        <ng-template st-row="percentages" let-item let-index="index">
+          <g2-mini-progress [percent]="item.percentage" strokeWidth="15" target="80" [color]="'green'"></g2-mini-progress>
+        </ng-template>
+      </st>
+    </nz-tab>
+    <ng-template #extraTemplate>
+      <div class="sales-extra-wrap">
+        <div class="sales-extra">
+          <a (click)="setDate('today')">本日</a>
+          <a (click)="setDate('week')">本周</a>
+          <a (click)="setDate('month')">本月</a>
+          <a (click)="setDate('year')">本年</a>
+        </div>
+        <nz-range-picker [(ngModel)]="date_range" style="display:inline-block; width: 256px;"></nz-range-picker>
+      </div>
+    </ng-template>
+  </nz-tabset>
+</nz-card>

@@ -314,30 +314,30 @@ export class ChartBarLineComponent implements OnDestroy, OnChanges {
     chart
       .interval()
       .position('x*y')
-      .color('y')
+      // .color('y')
       // .color(this.color)
-      // .color('y', (y) => { // 通过回调函数
-      //   if (y > this.limit) {
-      //     return this.colorOverLimit;
-      //   }
-      //   return this.colorBelowLimit;
-      // })
+      .color('y', (y) => { // 通过回调函数
+        if (y > this.limit) {
+          return this.colorOverLimit;
+        }
+        return this.colorBelowLimit;
+      })
       .tooltip('x*y', (x, y) => {
         return {
           name: x,
           value: y,
         };
       });
-    // chart.guide().line({
-    //   top: true, // 指定 guide 是否绘制在 canvas 最上层，默认为 false, 即绘制在最下层
-    //   start: ['start', this.limit], // 辅助线起始位置
-    //   end: ['end', this.limit], // 辅助线结束位置
-    //   lineStyle: {
-    //     strokeStyle: '#975FE4',
-    //     lineWidth: 2,
-    //     lineCap: 'round'
-    //   }
-    // });
+    chart.guide().line({
+      top: true, // 指定 guide 是否绘制在 canvas 最上层，默认为 false, 即绘制在最下层
+      start: ['start', this.limit], // 辅助线起始位置
+      end: ['end', this.limit], // 辅助线结束位置
+      lineStyle: {
+        strokeStyle: '#975FE4',
+        lineWidth: 2,
+        lineCap: 'round'
+      }
+    });
     chart.render();
     this.chart = chart;
   }

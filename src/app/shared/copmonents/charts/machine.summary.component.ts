@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { _HttpClient } from '@delon/theme';
+import { Component, OnInit, Inject } from '@angular/core';
+import { _HttpClient, ALAIN_I18N_TOKEN } from '@delon/theme';
 import { NzMessageService } from 'ng-zorro-antd';
 import { getTimeDistance } from '@delon/util';
 import { STColumn, STColumnTag } from '@delon/abc';
+import { I18NService } from '@core/i18n/i18n.service';
 
 const TAG: STColumnTag = {
-  1: { text: '成功', color: 'green' },
-  2: { text: '错误', color: 'red' },
-  3: { text: '进行中', color: 'blue' },
-  4: { text: '默认', color: '' },
-  5: { text: '警告', color: 'orange' },
+  1: { text: 'Success', color: 'green' },
+  2: { text: 'Error', color: 'red' },
+  3: { text: 'Ongoing', color: 'blue' },
+  4: { text: 'Default', color: '' },
+  5: { text: 'Warn', color: 'orange' },
 };
 
 const MAT_TAG: STColumnTag = {
-  1: { text: '使用中', color: 'green' },
-  2: { text: '未上载', color: 'red' },
-  3: { text: '续料', color: 'blue' },
+  1: { text: 'In Use', color: 'green' },
+  2: { text: 'No Mat.', color: 'red' },
+  3: { text: 'Need Replenish', color: 'blue' },
 };
 
 @Component({
@@ -27,26 +28,27 @@ export class MachineSummaryComponent implements OnInit {
   constructor(
     private http: _HttpClient,
     public msg: NzMessageService,
+    @Inject(ALAIN_I18N_TOKEN) private i18n: I18NService,
   ) { }
 
   prepareCols: STColumn[] = [
-    { title: '名称', index: 'name' },
+    { title: 'Name', index: 'name' },
     {
-      title: '描述',
+      title: 'Desc',
       index: 'desc',
     },
-    { title: '状态', index: 'finished', type: 'tag', tag: TAG },
+    { title: 'Status', index: 'finished', type: 'tag', tag: TAG },
   ];
 
   materialCols: STColumn[] = [
-    { title: '批号', index: 'batch' },
+    { title: 'Batch', index: 'batch' },
     {
-      title: '料号',
+      title: 'Material',
       index: 'material',
     },
-    { title: '数量', index: 'qty' },
-    { title: '存量', render: 'percentages' },
-    { title: '状态', index: 'loaded', type: 'tag', tag: MAT_TAG },
+    { title: 'Qty', index: 'qty' },
+    { title: 'Remain.', render: 'percentages' },
+    { title: 'Status', index: 'loaded', type: 'tag', tag: MAT_TAG },
   ];
   salesType = 'all';
   salesPieData: any;

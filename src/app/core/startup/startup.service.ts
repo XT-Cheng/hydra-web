@@ -6,6 +6,8 @@ import { catchError } from 'rxjs/operators';
 import { MenuService, SettingsService, TitleService, ALAIN_I18N_TOKEN } from '@delon/theme';
 import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
 import { ACLService } from '@delon/acl';
+import { I18NService } from '@core/i18n/i18n.service';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * 用于应用启动时
@@ -17,7 +19,9 @@ export class StartupService {
     private menuService: MenuService,
     private settingService: SettingsService,
     private aclService: ACLService,
+    private translate: TranslateService,
     private titleService: TitleService,
+    @Inject(ALAIN_I18N_TOKEN) private i18n: I18NService,
     @Inject(DA_SERVICE_TOKEN) private tokenService: ITokenService,
     private httpClient: HttpClient,
     private injector: Injector
@@ -25,6 +29,7 @@ export class StartupService {
 
   private viaHttp(resolve: any, reject: any) {
     zip(
+      this.httpClient.get(`assets/tmp/i18n/${this.i18n.defaultLang}.json`),
       this.httpClient.get('assets/tmp/app-data.json')
     ).pipe(
       // 接收其他拦截器后产生的异常消息
@@ -54,14 +59,15 @@ export class StartupService {
   }
 
   private viaMockI18n(resolve: any, reject: any) {
-    // this.httpClient
-    //   .get(`assets/tmp/i18n/${this.i18n.defaultLang}.json`)
-    //   .subscribe(langData => {
-    //     this.translate.setTranslation(this.i18n.defaultLang, langData);
-    //     this.translate.setDefaultLang(this.i18n.defaultLang);
+    this.httpClient
+      .get(`assets/tmp/i18n/${this.i18n.defaultLang}.json`)
+      .subscribe(langData => {
+        this.translate.setTranslation(this.i18n.defaultLang, langData);
+        this.translate.setDefaultLang(this.i18n.defaultLang);
 
-    //     this.viaMock(resolve, reject);
-    //   });
+        this.i18n.use('en-US');
+        this.viaMock(resolve, reject);
+      });
   }
 
   private viaMock(resolve: any, reject: any) {
@@ -120,8 +126,8 @@ export class StartupService {
       // http
       // this.viaHttp(resolve, reject);
       // mock：请勿在生产环境中这么使用，viaMock 单纯只是为了模拟一些数据使脚手架一开始能正常运行
-      this.viaMock(resolve, reject);
-
+      // this.viaMock(resolve, reject);
+      this.viaMockI18n(resolve, reject);
     });
   }
 }

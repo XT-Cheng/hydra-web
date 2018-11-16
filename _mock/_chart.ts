@@ -44,20 +44,20 @@ for (let i = 0; i < 50; i += 1) {
 const prepareData = [];
 
 prepareData.push({
-  name: '模具准备',
-  desc: `模具准备`,
+  name: 'Fix. Prep.',
+  desc: `Fix. Prep.`,
   finished: 1,
 }, {
-    name: '物料准备',
-    desc: `物料准备`,
+    name: 'Mat. Prep.',
+    desc: `Mat. Prep.`,
     finished: 2,
   }, {
-    name: 'WI准备',
-    desc: `WI准备`,
+    name: 'WI Prep.',
+    desc: `WI Prep.`,
     finished: 5,
   }, {
-    name: '线长确认',
-    desc: `线长确认`,
+    name: 'Leader Confirm.',
+    desc: `Leader Confirm.`,
     finished: 3,
   });
 
@@ -73,7 +73,7 @@ materialData.push({
     batch: '',
     material: `533983-1`,
     qty: 0,
-    percentage: 60,
+    percentage: 0,
     loaded: 2
   }, {
     batch: '3S998921234012',

@@ -2,22 +2,10 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-<<<<<<< HEAD
     "types": [
       "node"
     ],
     "paths": {
-=======
-    "module": "es2015",
-    "types": [],
-    "paths": {
-      "@internal": [
-        "app/library"
-      ],
-      "@internal/*": [
-        "app/library/*"
-      ],
->>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
       "@shared": [
         "app/shared"
       ],
@@ -46,14 +34,7 @@
     "baseUrl": "./"
   },
   "exclude": [
-<<<<<<< HEAD
     "test.ts",
     "**/*.spec.ts"
   ]
 }
-=======
-    "src/test.ts",
-    "**/*.spec.ts"
-  ]
-}
->>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b

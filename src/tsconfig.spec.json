@@ -2,10 +2,6 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/spec",
-<<<<<<< HEAD
-=======
-    "module": "commonjs",
->>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
     "types": [
       "jasmine",
       "node"
@@ -46,8 +42,4 @@
     "**/*.spec.ts",
     "**/*.d.ts"
   ]
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b

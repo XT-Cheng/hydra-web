@@ -12,10 +12,6 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
-<<<<<<< HEAD
-=======
-    files: ['karma.global.js'],
->>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
@@ -30,16 +26,6 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-<<<<<<< HEAD
     singleRun: false
-=======
-    singleRun: false,
-    customLaunchers: {
-      ChromeDebug: {
-        base: 'Chrome',
-        flags: ['--remote-debugging-port=9333']
-      }
-    }
->>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
   });
 };

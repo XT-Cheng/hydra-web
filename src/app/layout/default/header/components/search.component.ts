@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, HostBinding, Input, ElementRef, AfterViewInit } from '@angular/core';
+=======
+import { Component, HostBinding, ViewChild, Input, OnInit, ElementRef, AfterViewInit } from '@angular/core';
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
 
 @Component({
   selector: 'header-search',
@@ -15,10 +19,17 @@ export class HeaderSearchComponent implements AfterViewInit {
 
   qIpt: HTMLInputElement;
 
+<<<<<<< HEAD
   @HostBinding('class.alain-default__search-focus')
   focus = false;
 
   @HostBinding('class.alain-default__search-toggled')
+=======
+  @HostBinding('class.header-search__focus')
+  focus = false;
+
+  @HostBinding('class.header-search__toggled')
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
   searchToggled = false;
 
   @Input()

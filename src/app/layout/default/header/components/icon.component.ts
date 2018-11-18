@@ -4,7 +4,11 @@ import { Component } from '@angular/core';
   selector: 'header-icon',
   template: `
   <nz-dropdown nzTrigger="click" nzPlacement="bottomRight" (nzVisibleChange)="change()">
+<<<<<<< HEAD
     <div class="alain-default__nav-item" nz-dropdown>
+=======
+    <div class="item" nz-dropdown>
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
       <i class="anticon anticon-appstore-o"></i>
     </div>
     <div nz-menu class="wd-xl animated jello">

@@ -13,17 +13,24 @@ import { HeaderFullScreenComponent } from './default/header/components/fullscree
 import { HeaderStorageComponent } from './default/header/components/storage.component';
 import { HeaderUserComponent } from './default/header/components/user.component';
 
+<<<<<<< HEAD
 import { SettingDrawerComponent } from './default/setting-drawer/setting-drawer.component';
 import { SettingDrawerItemComponent } from './default/setting-drawer/setting-drawer-item.component';
 
 const SETTINGDRAWER = [SettingDrawerComponent, SettingDrawerItemComponent];
 
+=======
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
 const COMPONENTS = [
   LayoutDefaultComponent,
   LayoutFullScreenComponent,
   HeaderComponent,
+<<<<<<< HEAD
   SidebarComponent,
   ...SETTINGDRAWER
+=======
+  SidebarComponent
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
 ];
 
 const HEADERCOMPONENTS = [
@@ -44,7 +51,11 @@ const PASSPORT = [
 
 @NgModule({
   imports: [SharedModule],
+<<<<<<< HEAD
   entryComponents: SETTINGDRAWER,
+=======
+  providers: [],
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
   declarations: [
     ...COMPONENTS,
     ...HEADERCOMPONENTS,

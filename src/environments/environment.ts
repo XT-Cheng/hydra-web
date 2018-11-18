@@ -6,7 +6,10 @@ export const environment = {
   SERVER_URL: `./`,
   production: false,
   useHash: true,
+<<<<<<< HEAD
   hmr: false,
+=======
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
 };
 
 /*
@@ -16,3 +19,7 @@ export const environment = {
  * because it will have performance impact when throw error
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b

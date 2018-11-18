@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="alain-default__header-logo">
   <a [routerLink]="['/']" class="alain-default__header-logo-link">
     <img class="alain-default__header-logo-expanded" src="./assets/logo-full.svg" alt="{{settings.app.name}}" style="max-height:40px;" />
@@ -9,35 +10,67 @@
     <!-- Menu -->
     <li>
       <div class="alain-default__nav-item" (click)="toggleCollapsedSidebar()">
+=======
+<div class="logo">
+  <a [routerLink]="['/']">
+    <img class="expanded" src="./assets/logo-full.svg" alt="{{settings.app.name}}" style="max-height:40px;" />
+    <img class="collapsed" src="./assets/logo.svg" alt="{{settings.app.name}}" style="max-height:30px;" />
+  </a>
+</div>
+<div class="top-nav-wrap">
+  <ul class="top-nav">
+    <!-- Menu -->
+    <li>
+      <div class="item" (click)="toggleCollapsedSideabar()">
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
         <i class="anticon anticon-menu-{{settings.layout.collapsed ? 'unfold' : 'fold'}}"></i>
       </div>
     </li>
     <!-- Github Page -->
     <li>
+<<<<<<< HEAD
       <a class="alain-default__nav-item" href="//github.com/ng-alain/ng-alain" target="_blank">
+=======
+      <a class="item" href="//github.com/cipchk/ng-alain" target="_blank">
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
         <i class="anticon anticon-github"></i>
       </a>
     </li>
     <!-- Lock Page -->
+<<<<<<< HEAD
     <li class="hidden-mobile">
       <div class="alain-default__nav-item" [routerLink]="['/lock']">
+=======
+    <li class="hidden-xs">
+      <div class="item" [routerLink]="['/lock']">
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
         <i class="anticon anticon-lock"></i>
       </div>
     </li>
     <!-- Search Button -->
     <li class="header-search__btn" (click)="searchToggleChange()">
+<<<<<<< HEAD
       <div class="alain-default__nav-item">
+=======
+      <div class="item">
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
         <i class="anticon anticon-search"></i>
       </div>
     </li>
   </ul>
+<<<<<<< HEAD
   <!-- <header-search class="alain-default__search" [toggleChange]="searchToggleStatus"></header-search> -->
   <ul class="alain-default__nav">
+=======
+  <header-search class="header-search" [toggleChange]="searchToggleStatus"></header-search>
+  <ul class="top-nav">
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
     <!-- Notify -->
     <li>
       <header-notify></header-notify>
     </li>
     <!-- Task -->
+<<<<<<< HEAD
     <li class="hidden-mobile">
       <header-task></header-task>
     </li>
@@ -49,6 +82,19 @@
     <li class="hidden-mobile">
       <nz-dropdown nzTrigger="click" nzPlacement="bottomRight">
         <div class="alain-default__nav-item" nz-dropdown>
+=======
+    <li class="hidden-xs">
+      <header-task></header-task>
+    </li>
+    <!-- App Icons -->
+    <li class="hidden-xs">
+      <header-icon></header-icon>
+    </li>
+    <!-- Settings -->
+    <li class="hidden-xs">
+      <nz-dropdown nzTrigger="click" nzPlacement="bottomRight">
+        <div class="item" nz-dropdown>
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
           <i class="anticon anticon-setting"></i>
         </div>
         <div nz-menu style="width:200px;">
@@ -61,7 +107,11 @@
         </div>
       </nz-dropdown>
     </li>
+<<<<<<< HEAD
     <li class="hidden-mobile">
+=======
+    <li class="hidden-xs">
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
       <header-user></header-user>
     </li>
   </ul>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { NgModule, LOCALE_ID, APP_INITIALIZER, Injector } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -96,6 +97,41 @@ import { AppComponent } from './app.component';
 import { RoutesModule } from './routes/routes.module';
 import { LayoutModule } from './layout/layout.module';
 import { FetchService } from '@core/hydra/fetch.service';
+=======
+import { registerLocaleData } from '@angular/common';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import localeZhHans from '@angular/common/locales/zh-Hans';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthModule } from '@core/auth/auth.module';
+import { StartupService } from '@core/startup/startup.service';
+import { StoreModule } from '@core/store/store.module';
+import { IonicStorageModule } from '@ionic/storage';
+import { JsonSchemaModule } from '@shared/json-schema/json-schema.module';
+
+import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
+import { DelonModule } from './delon.module';
+import { LayoutModule } from './layout/layout.module';
+import { RoutesModule } from './routes/routes.module';
+import { SharedModule } from './shared/shared.module';
+
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// angular i18n
+registerLocaleData(localeZhHans);
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, `assets/tmp/i18n/`, '.json');
+}
+
+// @delon/form: JSON Schema form
+export function StartupServiceFactory(startupService: StartupService): Function {
+  return () => startupService.load();
+}
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
 
 @NgModule({
   declarations: [
@@ -110,6 +146,7 @@ import { FetchService } from '@core/hydra/fetch.service';
     SharedModule,
     LayoutModule,
     RoutesModule,
+<<<<<<< HEAD
     ...I18NSERVICE_MODULES,
     ...FORM_MODULES,
     ...GLOBAL_THIRD_MDOULES
@@ -120,6 +157,26 @@ import { FetchService } from '@core/hydra/fetch.service';
     ...I18NSERVICE_PROVIDES,
     ...APPINIT_PROVIDES,
     FetchService
+=======
+    // JSON-Schema form
+    JsonSchemaModule,
+    // Brick Travel Modules
+    StoreModule.forRoot(),
+    AuthModule.forRoot(),
+    IonicStorageModule.forRoot()
+  ],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'zh-Hans' },
+    // { provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: DefaultInterceptor, multi: true },
+    StartupService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: StartupServiceFactory,
+      deps: [StartupService],
+      multi: true
+    }
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
   ],
   bootstrap: [AppComponent]
 })

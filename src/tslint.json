@@ -9,7 +9,12 @@
         "passport",
         "exception",
         "layout",
+<<<<<<< HEAD
         "header"
+=======
+        "header",
+        "bt"
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
       ],
       "camelCase"
     ],
@@ -22,9 +27,17 @@
         "exception",
         "layout",
         "header",
+<<<<<<< HEAD
         "dashboard"
+=======
+        "bt"
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
       ],
       "kebab-case"
     ]
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b

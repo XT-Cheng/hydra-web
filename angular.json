@@ -24,6 +24,7 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
+<<<<<<< HEAD
               "src/assets",
               {
                 "glob": "**/*",
@@ -39,16 +40,34 @@
               "node_modules/@antv/g2/dist/g2.min.js",
               "node_modules/@antv/data-set/dist/data-set.min.js",
               "node_modules/@antv/g2-plugin-slider/dist/g2-plugin-slider.min.js"
+=======
+              "src/assets"
+            ],
+            "styles": [
+              "node_modules/simple-line-icons/css/simple-line-icons.css",
+              "src/styles.less",
+              "src/app/shared/components/styles/iconfont.css"
+            ],
+            "scripts": [
+              "src/app/shared/components/styles/iconfont.js"
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
             ]
           },
           "configurations": {
             "production": {
+<<<<<<< HEAD
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+=======
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -57,6 +76,7 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
+<<<<<<< HEAD
               "buildOptimizer": true,
               "budgets": [
                 {
@@ -73,6 +93,9 @@
                   "with": "src/environments/environment.hmr.ts"
                 }
               ]
+=======
+              "buildOptimizer": true
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
             }
           }
         },
@@ -84,10 +107,13 @@
           "configurations": {
             "production": {
               "browserTarget": "hydra-web:build:production"
+<<<<<<< HEAD
             },
             "hmr": {
               "browserTarget": "hydra-web:build:hmr",
               "hmr": true
+=======
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
             }
           }
         },
@@ -107,12 +133,16 @@
             "styles": [
               "src/styles.less"
             ],
+<<<<<<< HEAD
             "scripts": [
               "node_modules/ajv/dist/ajv.bundle.js",
               "node_modules/@antv/g2/dist/g2.min.js",
               "node_modules/@antv/data-set/dist/data-set.min.js",
               "node_modules/@antv/g2-plugin-slider/dist/g2-plugin-slider.min.js"
             ],
+=======
+            "scripts": [],
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -136,18 +166,24 @@
     "hydra-web-e2e": {
       "root": "e2e/",
       "projectType": "application",
+<<<<<<< HEAD
       "prefix": "",
+=======
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "hydra-web:serve"
+<<<<<<< HEAD
           },
           "configurations": {
             "production": {
               "devServerTarget": "hydra-web:serve:production"
             }
+=======
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
           }
         },
         "lint": {
@@ -168,6 +204,7 @@
       "routing": true,
       "spec": false
     },
+<<<<<<< HEAD
     "ng-alain:list": {
       "spec": false
     },
@@ -182,6 +219,8 @@
     "ng-alain:curd": {
       "spec": false
     },
+=======
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
     "@schematics/angular:module": {
       "routing": true,
       "spec": false
@@ -199,4 +238,8 @@
       "spec": false
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b

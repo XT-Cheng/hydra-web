@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { SettingsService } from '@delon/theme';
 import { Component, OnDestroy, Inject, Optional } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,6 +13,20 @@ import {
 import { ReuseTabService } from '@delon/abc';
 import { environment } from '@env/environment';
 import { StartupService } from '@core/startup/startup.service';
+=======
+import { Component, Inject, OnDestroy, Optional } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthResult } from '@core/auth/providers/authResult';
+import { AuthService } from '@core/auth/providers/authService';
+import { StartupService } from '@core/startup/startup.service';
+import { REDIRECT_DELAY } from '@core/utils/constants';
+import { ReuseTabService } from '@delon/abc';
+import { DA_SERVICE_TOKEN, SocialOpenType, SocialService, TokenService } from '@delon/auth';
+import { SettingsService } from '@delon/theme';
+import { environment } from '@env/environment';
+import { NzMessageService, NzModalService } from 'ng-zorro-antd';
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
 
 @Component({
   selector: 'passport-login',
@@ -27,6 +42,10 @@ export class UserLoginComponent implements OnDestroy {
 
   constructor(
     fb: FormBuilder,
+<<<<<<< HEAD
+=======
+    protected service: AuthService,
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
     private router: Router,
     public msg: NzMessageService,
     private modalSrv: NzModalService,
@@ -39,7 +58,11 @@ export class UserLoginComponent implements OnDestroy {
     private startupSrv: StartupService,
   ) {
     this.form = fb.group({
+<<<<<<< HEAD
       userName: [null, [Validators.required, Validators.minLength(5)]],
+=======
+      userName: [null, [Validators.required, Validators.minLength(3)]],
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
       password: [null, Validators.required],
       mobile: [null, [Validators.required, Validators.pattern(/^1\d{10}$/)]],
       captcha: [null, [Validators.required]],
@@ -100,6 +123,7 @@ export class UserLoginComponent implements OnDestroy {
       if (this.mobile.invalid || this.captcha.invalid) return;
     }
 
+<<<<<<< HEAD
     // **注：** DEMO中使用 `setTimeout` 来模拟 http
     // 默认配置中对所有HTTP请求都会强制[校验](https://ng-alain.com/auth/getting-started) 用户 Token
     // 然一般来说登录请求不需要校验，因此可以在请求URL加上：`/login?_allow_anonymous=true` 表示不触发用户 Token 校验
@@ -131,6 +155,57 @@ export class UserLoginComponent implements OnDestroy {
       // 否则直接跳转
       this.router.navigate(['/']);
     }, 1000);
+=======
+    this.loading = true;
+
+    this.service.authenticate({ username: this.userName.value, password: this.password.value }).subscribe((result: AuthResult) => {
+      // if (result.isSuccess()) {
+      //   this.messages = result.getMessages();
+      // } else {
+      //   this.errors = result.getErrors();
+      // }
+      this.loading = false;
+
+      if (result.isFailure()) {
+        this.error = result.getErrors()[0];
+      }
+
+      const redirect = result.getRedirect();
+      if (redirect) {
+        setTimeout(() => {
+          return this.router.navigateByUrl(redirect);
+        }, REDIRECT_DELAY);
+      }
+    });
+
+    // setTimeout(() => {
+    //   this.loading = false;
+    //   if (this.type === 0) {
+    //     if (
+    //       this.userName.value !== 'admin' ||
+    //       this.password.value !== '888888'
+    //     ) {
+    //       this.error = `账户或密码错误`;
+    //       return;
+    //     }
+    //   }
+
+    //   // 清空路由复用信息
+    //   this.reuseTabService.clear();
+    //   // 设置Token信息
+    //   this.tokenService.set({
+    //     token: '123456789',
+    //     name: this.userName.value,
+    //     email: `cipchk@qq.com`,
+    //     id: 10000,
+    //     time: +new Date(),
+    //   });
+    //   // 重新获取 StartupService 内容，若其包括 User 有关的信息的话
+    //   // this.startupSrv.load().then(() => this.router.navigate(['/']));
+    //   // 否则直接跳转
+    //   this.router.navigate(['/']);
+    // }, 1000);
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
   }
 
   // region: social
@@ -139,7 +214,11 @@ export class UserLoginComponent implements OnDestroy {
     let url = ``;
     let callback = ``;
     if (environment.production)
+<<<<<<< HEAD
       callback = 'https://ng-alain.github.io/ng-alain/callback/' + type;
+=======
+      callback = 'https://cipchk.github.io/ng-alain/callback/' + type;
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
     else callback = 'http://localhost:4200/callback/' + type;
     switch (type) {
       case 'auth0':

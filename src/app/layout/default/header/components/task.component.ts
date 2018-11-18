@@ -4,13 +4,21 @@ import { Component } from '@angular/core';
   selector: 'header-task',
   template: `
   <nz-dropdown nzTrigger="click" nzPlacement="bottomRight" (nzVisibleChange)="change()">
+<<<<<<< HEAD
     <div class="alain-default__nav-item" nz-dropdown>
+=======
+    <div class="item" nz-dropdown>
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
       <nz-badge [nzDot]="true">
         <i class="anticon anticon-bell"></i>
       </nz-badge>
     </div>
     <div nz-menu class="wd-lg">
+<<<<<<< HEAD
       <nz-card nzTitle="Notifications" [nzLoading]="loading" nzBordered="false" class="ant-card__body-nopadding">
+=======
+      <nz-card nzTitle="Notifications" [nzLoading]="loading" class="ant-card__body-nopadding">
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
         <ng-template #extra><i class="anticon anticon-plus"></i></ng-template>
         <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="py-sm bg-grey-lighter-h point">
           <div nz-col [nzSpan]="4" class="text-center">
@@ -57,8 +65,13 @@ import { Component } from '@angular/core';
             <p class="mb0">Please tell me what happened in a few words, don't go into details.</p>
           </div>
         </div>
+<<<<<<< HEAD
         <div nz-row>
           <div nz-col [nzSpan]="24" class="pt-md border-top-1 text-center text-grey point">
+=======
+        <div nz-row class="pt-lg pb-lg">
+          <div nz-col [nzSpan]="24" class="border-top-1 text-center text-grey point">
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
             See All
           </div>
         </div>

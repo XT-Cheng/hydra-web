@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="alain-default__progress-bar" *ngIf="isFetching"></div>
 <layout-header class="alain-default__header"></layout-header>
 <layout-sidebar class="alain-default__aside"></layout-sidebar>
@@ -5,3 +6,18 @@
   <router-outlet></router-outlet>
 </section>
 <ng-template #settingHost></ng-template>
+=======
+<div class="wrapper">
+  <div class="router-progress-bar" *ngIf="isFetching"></div>
+  <layout-header class="header"></layout-header>
+  <layout-sidebar class="aside"></layout-sidebar>
+  <section class="content">
+    <reuse-tab></reuse-tab>
+    <bt-quick-menu>
+      <button nz-button nz-tooltip nzTitle="Create" nzType="primary" (click)='newEntity()' nzSize="large" nzShape="circle"><i class="anticon anticon-plus"></i>  
+      </button>
+    </bt-quick-menu>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+  </section>
+</div>
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b

@@ -1,11 +1,19 @@
 # This file is currently used by autoprefixer to adjust CSS to support the below specified browsers
 # For additional information regarding the format and rule options, please see:
 # https://github.com/browserslist/browserslist#queries
+<<<<<<< HEAD
 #
 # For IE 9-11 support, please remove 'not' from the last line of the file and adjust as needed
 
+=======
+# For IE 9-11 support, please uncomment the last line of the file and adjust as needed
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
 > 0.5%
 last 2 versions
 Firefox ESR
 not dead
+<<<<<<< HEAD
 not IE 9-11
+=======
+# IE 9-11
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b

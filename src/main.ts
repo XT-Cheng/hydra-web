@@ -4,10 +4,15 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+<<<<<<< HEAD
 import { preloaderFinished } from '@delon/theme';
 preloaderFinished();
 
 import { hmrBootstrap } from './hmr';
+=======
+// import { preloaderFinished } from '@delon/theme';
+// preloaderFinished();
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
 
 if (environment.production) {
   enableProdMode();
@@ -17,6 +22,7 @@ const bootstrap = () => {
   return platformBrowserDynamic().bootstrapModule(AppModule, {
     defaultEncapsulation: ViewEncapsulation.Emulated,
     preserveWhitespaces: false,
+<<<<<<< HEAD
   }).then((res) => {
     if ((<any>window).appBootstrap) {
       (<any>window).appBootstrap();
@@ -35,3 +41,13 @@ if (environment.hmr) {
 } else {
   bootstrap();
 }
+=======
+  });
+};
+
+bootstrap().then(() => {
+  if ((<any>window).appBootstrap) {
+    (<any>window).appBootstrap();
+  }
+});
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b

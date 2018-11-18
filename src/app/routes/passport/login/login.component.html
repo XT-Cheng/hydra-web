@@ -5,9 +5,15 @@
       <nz-form-item>
         <nz-form-control>
           <nz-input-group nzSize="large" nzPrefixIcon="anticon anticon-user">
+<<<<<<< HEAD
             <input nz-input formControlName="userName" placeholder="admin">
           </nz-input-group>
           <nz-form-explain *ngIf="userName.dirty && userName.errors">请输入账户名且至少五个字符！</nz-form-explain>
+=======
+            <input nz-input formControlName="userName" placeholder="admin" btAutofocus>
+          </nz-input-group>
+          <nz-form-explain *ngIf="userName.dirty && userName.errors">请输入账户名且至少三个字符！</nz-form-explain>
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
@@ -42,7 +48,11 @@
               </nz-form-explain>
             </nz-col>
             <nz-col [nzSpan]="8">
+<<<<<<< HEAD
               <button nz-button nzSize="large" (click)="getCaptcha()" [disabled]="count" nzBlock>{{ count ? count + 's' : '获取验证码' }}</button>
+=======
+              <button nz-button nzSize="large" (click)="getCaptcha()" [disabled]="count" class="ant-btn__block">{{ count ? count + 's' : '获取验证码' }}</button>
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
             </nz-col>
           </nz-row>
         </nz-form-control>
@@ -58,7 +68,11 @@
     </nz-col>
   </nz-form-item>
   <nz-form-item>
+<<<<<<< HEAD
     <button nz-button type="submit" nzType="primary" nzSize="large" [nzLoading]="loading" nzBlock>登录</button>
+=======
+    <button nz-button type="submit" nzType="primary" nzSize="large" [nzLoading]="loading" class="ant-btn__block">登录</button>
+>>>>>>> 8592e4e65730903d79297a1a874d06e6a8365b7b
   </nz-form-item>
 </form>
 <div class="other">
